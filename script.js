@@ -4,12 +4,14 @@ const User_name = document.getElementById('name');
 const profession = document.getElementById('profession');
 const age = document.getElementById('age');
 const tableList = document.getElementById('table')
+const professionFilter = document.getElementById("profession");
+const userListContainer = document.getElementById("user-list");
 
 //emprty array
-let userArr = [
-    { id: 1, User_name: "john", age: "18", profession: "developer" },
-    { id: 2, User_name: "jack", age: "20", profession: "developer" },
-    { id: 3, User_name: "karen", age: "19", profession: "admin" },
+let userArr = [ 
+    { id: 1, User_name: "john", age: "18", profession: "Developer" },
+    { id: 2, User_name: "jack", age: "20", profession: "Developer" },
+    { id: 3, User_name: "karen", age: "19", profession: "Admin" },
 ]
 
 
@@ -20,7 +22,6 @@ AddUser.addEventListener('click', (e) => {
  userArr = [...userArr, Add_user];
  console.log(userArr); 
  UI.displayUser(); 
-
 
 });
 
@@ -51,3 +52,26 @@ class UI {
         tableList.innerHTML = displayUser;
     }
 }
+
+FilterButton.addEventListener('click', (e) =>{
+    e.preventDefault();
+    const selectedProfession = professionFilter.value;
+    if (selectedProfession === "") {
+      alert("Please select a profession to filter by.");
+      return;
+    }
+    const filterList = userArr.filter (
+    (userL) => userL.profession === selectedProfession);
+    let html = "";
+    filterList.forEach((userLi) =>{
+        html += `
+        <div class="user-card">
+                <h3>ID: ${user.id}</h3>
+                <p>Name: ${user.name}</p>
+                <p>Age: ${user.age}</p>
+                <p>Profession: ${user.profession}</p>
+              </div>`;
+    });
+    userListContainer.innerHTML = html;
+
+})

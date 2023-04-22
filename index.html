@@ -11,21 +11,17 @@
 </head>
 <body>
     <div class="container">
-            <div class="dropdown mt-4">
-                <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Profession
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Developer</a></li>
-                  <li><a class="dropdown-item" href="#">Admin</a></li>
-                </ul>
-              </div>
+      <select id="profession">
+        <option value="">Profession</option>
+        <option value="developer">Developer</option>
+        <option value="admin">Admin</option>
+      </select>
 
         <div class="table mt-5">    
             <table class="table">
                 <tbody id="table">
                  
-                  
+
                 </tbody>
               </table>
               <button type="button" class="btn btn-dark p-2 btn-sm" id="filter">Filter</button>
@@ -54,6 +50,9 @@
           </form>
 
           <!--Form End-->
+
+
+          <div id="user-list"></div>
 
     </div>
     
